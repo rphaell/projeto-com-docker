@@ -1,14 +1,11 @@
 #!/bin/bash
 
-sudo apt-get update -y
+sudo apt-get update
 sudo apt-get upgrade -y
 
-sudo apt-get install apache2 -y
+sudo apt-get install curl -y
 
-sudo git clone https://github.com/denilsonbonatti/mundo-invertido.git
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh ./get-docker.sh
 
-cd mundo-invertido
-
-sudo cp -R * /var/www/html/
-
-ip a
+sudo docker run -dti --name app-bootcamp -p 80:80 phaelcrypto/meusite:1.0
